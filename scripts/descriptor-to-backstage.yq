@@ -1,0 +1,63 @@
+"https://confluent.cloud/environments/"
+  + strenv(CFLT_ENVIRON)
+  + "/clusters/"
+  + strenv(CFLT_CLUSTER)
+  + "/topics" as $cc_topics
+| "https://confluent.cloud/environments/"
+  + strenv(CFLT_ENVIRON)
+  + "/clusters/"
+  + strenv(CFLT_CLUSTER)
++ "/stream-lineage/view/topic-" as $cc_stream_lineage
+| .context as $ctx
+| .source as $team
+| .projects[].topics[]
+| {
+	"apiVersion": "backstage.io/v1alpha1",
+	"kind": "Resource",
+	"metadata": {
+	"name": (parent | parent | .name) + "." + .name,
+	"tags": parent | parent | [
+	(.producers[0] * .consumers[0]).principal,
+		"team-" + $team,
+		"domain-" + .name ],
+
+	"annotations": {
+		(strenv(ANNOTATION_PREFIX) + strenv(KAFKA_ENV) | downcase):
+		(.schemas."value.schema.file" | split("/"))[1]
+	},
+	"links": [
+		{
+			"url": "",
+			"title": "View topic in Confluent Cloud (" + strenv(KAFKA_ENV)
+			+")",
+			"icon": "dashboard",
+			"type": "admin-dashboard"
+		},
+		{
+			"url": "",
+			"title": "View real-time stream lineage in Confluent Cloud (" +
+			strenv(KAFKA_ENV) +")",
+			"icon": "dashboard",
+			"type": "admin-dashboard"
+		},
+		{
+			"url": strenv(SCHEMA_URL) + "/" + (.schemas."value.schema.file" |
+			split("/"))[1],
+			"title": "View Schema",
+			"icon": "dashboard",
+			"type": "admin-dashboard"
+		}
+	]
+	},
+	"spec": {
+		"type": "kafka-topic",
+		"lifecycle": strenv(KAFKA_ENV) | downcase,
+		"system": "Kafka-" + strenv(KAFKA_ENV) + "-Cluster",
+		"owner": $team
+	}
+ }
+| .metadata.name = ([ $ctx, $team, .metadata.name ] | join("."))
+| .metadata.links[0].url = ([ $cc_topics, .metadata.name ] | join("/")) + "/overview"
+| .metadata.links[1].url = $cc_stream_lineage + .metadata.name
+| split_doc | .. style=""
+

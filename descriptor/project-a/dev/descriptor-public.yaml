@@ -1,0 +1,24 @@
+---
+context: "public.topics"
+source: "squad-1"
+projects:
+  - name: "project-a"
+    producers:
+      - principal: "sa-project-a"
+    topics:
+      - name: "invoices-v1.0"
+        plan: "default"
+        schemas:
+          value.schema.file: "schemas/invoices-v1.0.json"
+          value.format: "JSON"
+
+  - name: "project-a"
+    producers:
+      - principal: "sa-project-a"
+    topics:
+      - name: "vendors-v1.0"
+        plan: "default"
+        schemas:
+          value.schema.file: "schemas/vendors-v1.0.json"
+          value.format: "JSON"
+

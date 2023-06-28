@@ -1,0 +1,152 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: public.topics.squad-1.project-a.invoices-v1.0
+  tags:
+    - sa-project-a
+    - team-squad-1
+    - domain-project-a
+  annotations:
+    corp/julieops-dev: invoices-v1.0.json
+    corp/julieops-test: invoices-v1.0.json
+    corp/julieops-prod: invoices-v1.0.json
+  links:
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/topics/public.topics.squad-1.project-a.invoices-v1.0/overview
+      title: View topic in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/stream-lineage/view/topic-public.topics.squad-1.project-a.invoices-v1.0
+      title: View real-time stream lineage in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://schema-service.org.io/subjects/invoices-v1.0.json
+      title: View Schema
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: kafka-topic
+  lifecycle: prod
+  system: Kafka-Prod-Cluster
+  owner: squad-1
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: public.topics.squad-1.project-a.vendors-v1.0
+  tags:
+    - sa-project-a
+    - team-squad-1
+    - domain-project-a
+  annotations:
+    corp/julieops-dev: vendors-v1.0.json
+    corp/julieops-test: vendors-v1.json
+    corp/julieops-prod: vendors-v1.0.json
+  links:
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/topics/public.topics.squad-1.project-a.vendors-v1.0/overview
+      title: View topic in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/stream-lineage/view/topic-public.topics.squad-1.project-a.vendors-v1.0
+      title: View real-time stream lineage in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://schema-service.org.io/subjects/vendors-v1.0.json
+      title: View Schema
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: kafka-topic
+  lifecycle: prod
+  system: Kafka-Prod-Cluster
+  owner: squad-1
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: public.topics.squad-2.project-b.item-v3.0
+  tags:
+    - sa-project-b
+    - team-squad-2
+    - domain-project-b
+  annotations:
+    corp/julieops-dev: item-v3.0.json
+  links:
+    - url: https://confluent.cloud/environments/env-dev/clusters/lkc-abcded/topics/public.topics.squad-2.project-b.item-v3.0/overview
+      title: View topic in Confluent Cloud (Dev)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://confluent.cloud/environments/env-dev/clusters/lkc-abcded/stream-lineage/view/topic-public.topics.squad-2.project-b.item-v3.0
+      title: View real-time stream lineage in Confluent Cloud (Dev)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://schema-service.org.io/subjects/item-v3.0.json
+      title: View Schema
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: kafka-topic
+  lifecycle: dev
+  system: Kafka-Dev-Cluster
+  owner: squad-2
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: public.topics.squad-2.project-b.item-v2.0
+  tags:
+    - sa-project-b
+    - team-squad-2
+    - domain-project-b
+  annotations:
+    corp/julieops-dev: item-v2.0.json
+    corp/julieops-test: item-v2.0.json
+  links:
+    - url: https://confluent.cloud/environments/env-test/clusters/lkc-abcdee/topics/public.topics.squad-2.project-b.item-v2.0/overview
+      title: View topic in Confluent Cloud (Test)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://confluent.cloud/environments/env-test/clusters/lkc-abcdee/stream-lineage/view/topic-public.topics.squad-2.project-b.item-v2.0
+      title: View real-time stream lineage in Confluent Cloud (Test)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://schema-service.org.io/subjects/item-v2.0.json
+      title: View Schema
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: kafka-topic
+  lifecycle: test
+  system: Kafka-Test-Cluster
+  owner: squad-2
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: public.topics.squad-2.project-b.item-v1.0
+  tags:
+    - sa-project-b
+    - team-squad-2
+    - domain-project-b
+  annotations:
+    corp/julieops-dev: item-v1.0.json
+    corp/julieops-test: item-v1.0.json
+    corp/julieops-prod: item-v1.0.json
+  links:
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/topics/public.topics.squad-2.project-b.item-v1.0/overview
+      title: View topic in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://confluent.cloud/environments/env-prod/clusters/lkc-abcdef/stream-lineage/view/topic-public.topics.squad-2.project-b.item-v1.0
+      title: View real-time stream lineage in Confluent Cloud (Prod)
+      icon: dashboard
+      type: admin-dashboard
+    - url: https://schema-service.org.io/subjects/item-v1.0.json
+      title: View Schema
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: kafka-topic
+  lifecycle: prod
+  system: Kafka-Prod-Cluster
+  owner: squad-2

@@ -1,0 +1,22 @@
+. as $dev
+| load("test-entities.yaml") as $test
+| load("prod-entities.yaml") as $prod
+| $dev.metadata.annotations |= (
+  $dev.metadata.annotations
+  * ($test[] | select(.metadata.name == $dev.metadata.name).metadata.annotations))
+| $dev.metadata.annotations |= (
+  $dev.metadata.annotations
+  * ($prod[] | select(.metadata.name == $dev.metadata.name).metadata.annotations))
+| $dev.spec.lifecycle |=
+  ($test[] | select(.metadata.name == $dev.metadata.name).spec.lifecycle)
+| $dev.spec.lifecycle |=
+  ($prod[] | select(.metadata.name == $dev.metadata.name).spec.lifecycle)
+| $dev.spec.system |=
+  ($test[] | select(.metadata.name == $dev.metadata.name).spec.system)
+| $dev.spec.system |=
+  ($prod[] | select(.metadata.name == $dev.metadata.name).spec.system)
+| $dev.metadata.links |=
+  ($test[] | select(.metadata.name == $dev.metadata.name).metadata.links)
+| $dev.metadata.links |=
+  ($prod[] | select(.metadata.name == $dev.metadata.name).metadata.links)
+| $dev

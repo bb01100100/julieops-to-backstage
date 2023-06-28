@@ -1,0 +1,18 @@
+---
+context: "public.topics"
+source: "squad-2"
+projects:
+  - name: "project-b"
+    producers:
+      - principal: "sa-project-b"
+    topics:
+      - name: "item-v2.0"
+        plan: "default"
+        schemas:
+          value.schema.file: "schemas/item-v2.0.json"
+          value.format: "JSON"
+      - name: "item-v1.0"
+        plan: "default"
+        schemas:
+          value.schema.file: "schemas/item-v1.0.json"
+          value.format: "JSON"

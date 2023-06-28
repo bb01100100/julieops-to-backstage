@@ -1,0 +1,17 @@
+---
+common:
+  schema:
+    url: "https://schema-service.org.io/subjects"
+  topic_annotation_prefix: "corp/julieops-"
+dev:
+  confluent:
+    environment: env-dev
+    cluster: lkc-abcded
+test:
+  confluent:
+    environment: env-test
+    cluster: lkc-abcdee
+prod:
+  confluent:
+    environment: env-prod
+    cluster: lkc-abcdef

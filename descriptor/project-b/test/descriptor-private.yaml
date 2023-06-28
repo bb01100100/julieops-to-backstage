@@ -1,0 +1,14 @@
+---
+context: "private.topics"
+source: "squad-2"
+projects:
+  - name: "project-b"
+    producers:
+      - principal: "sa-project-b"
+    consumers:
+      - principal: "sa-project-b"
+    topics:
+      - name: "incoming-v1"
+        plan: "default"
+      - name: "transformed-v1"
+        plan: "default"
